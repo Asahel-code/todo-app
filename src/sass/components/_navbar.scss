@@ -1,0 +1,107 @@
+.navbar{
+    background-color: $main-color;
+    color: $main-bg;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+    height: $navbar-height;
+    transition: height 0.5s ease;
+
+    @include tablet{
+         height: $navbar-tablet-height;
+        box-shadow: $box-shadow;
+    }
+       
+    @include mobile{
+          height: $navbar-mobile-height;
+    }
+       
+    &__mobile-toggle{
+         display: none;
+
+        @include tablet{
+            cursor: pointer;
+            display: block;
+            font-size: 2.5rem;
+        }      
+    }
+
+    &__close {
+        display: none;
+
+         @include tablet {
+            display: block;
+            position: absolute;
+            left: 20px;
+            font-size: 2.5rem;     
+        }   
+    }
+    
+    &__menu{
+        padding-top: 20px;
+        @include tablet {
+            padding-top: 10px;     
+        }
+        @include mobile {
+            padding-top: 5px;     
+        }
+    }
+
+    &__section{
+        @include flex(center, space-between);
+        height: 100%;
+        font-size: 1.5rem;
+
+        @include tablet {
+            flex-direction: column;
+            background-color: $main-color;
+            color: $main-bg;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100vh;
+            justify-content: flex-start;
+            padding-top: 30px;
+            transform: translateX(-100%);
+            transition: transform 0.5s ease;
+
+            &.active {
+                transform: translateX(0);
+            }
+        }
+
+        &__logo{
+            &__item{
+                font-size: 30px;
+                font-weight: bold;
+            }
+        }
+
+        &__links{
+            display: flex;
+             
+             @include tablet {
+                display: block;
+                position: absolute;
+                left: 5;   
+            }
+
+            &__item{
+                padding-right: 20px;
+                &:hover{
+                    color:$secondary-bg;
+                    font-weight: bold;
+                }
+                @include tablet {
+                    padding: 0;
+                }
+            }   
+        }
+    }  
+}
+    
+
+    

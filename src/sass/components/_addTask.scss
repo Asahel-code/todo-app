@@ -1,0 +1,70 @@
+.add__task{
+   padding-top: 50px;
+
+   &__title{
+        text-align: center;
+
+        &__item{
+        font-size: 1.2rem;
+        }
+    }
+
+    &__inputs{
+        display: grid;
+        grid-template-columns: 800px 200px 100px;
+
+        @include tablet {
+           display: block;
+        }
+
+        &__input{
+            margin-top: 0.5em;
+            display:flex;
+            flex-direction: column;
+            margin-right: 0.5em;
+
+            // &__input1{
+            //     grid-area: a;
+            // }
+
+            // &__input1{
+            //     grid-area: b;
+            // }
+
+            // &__input1{
+            //     grid-area: c;
+            // }
+
+            label{
+                font-size: 1.2rem;
+            }
+            input{
+                width: 100%;
+                height: 30px;
+                font-size: 1.2rem;
+                
+                &:focus{
+                    outline: none;
+                }
+            }
+
+            @include tablet{
+                margin-top: 0.5em;
+            }
+        }
+    }
+
+    &__button{
+        margin: 20px 0;
+
+        button{
+            padding: 8px 20px;
+            font-size: 1.2rem;
+            color: $main-bg;
+            background-color: $main-color;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    }
+}

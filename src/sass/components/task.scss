@@ -1,0 +1,46 @@
+.task{
+    margin: 20px 0;
+    padding:10px 20px;
+    background: $secondary-bg;
+
+    &__title{
+        text-align: center;
+        padding: 5px 0;
+        &__item{    
+            font-size: 1.5rem;
+        }
+    }
+    
+    &__section{
+        margin: 10px 0;
+        &__content{
+            margin-bottom: 10px;
+            padding: 15px 5px;
+            background: $main-bg;
+            font-size: 1.2rem;
+            display: grid;
+            grid-template-columns: 900px 100px 100px;
+            overflow-y: hidden;
+
+            &__update{
+               color: #0099ff;
+               cursor: pointer;
+
+               &:hover{
+                    color: #0077ff;
+                }
+            }
+
+            &__delete{
+               color: #d62316;
+                cursor: pointer;
+
+               &:hover{
+                    color: #af1207;
+                }
+            }
+
+        }
+    }
+
+}
