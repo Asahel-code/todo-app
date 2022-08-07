@@ -3,9 +3,14 @@
 
    &__title{
         text-align: center;
+        margin-bottom: 20px; 
 
         &__item{
-        font-size: 1.2rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            @include tablet{
+                font-size: 1.2rem;
+            }
         }
     }
 
@@ -22,18 +27,6 @@
             display:flex;
             flex-direction: column;
             margin-right: 0.5em;
-
-            // &__input1{
-            //     grid-area: a;
-            // }
-
-            // &__input1{
-            //     grid-area: b;
-            // }
-
-            // &__input1{
-            //     grid-area: c;
-            // }
 
             label{
                 font-size: 1.2rem;
