@@ -16,7 +16,7 @@ function App() {
               routes.map((r) => (
                 <Route exact key={r.path} path={r.path} element={r.element} />
               ))}
-          </Routes>u
+          </Routes>
         <Footer />
       </Router>
 
