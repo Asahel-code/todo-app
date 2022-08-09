@@ -18,34 +18,50 @@
     
     &__section{
         margin: 10px 0;
-        &__content{
-            margin-bottom: 10px;
-            padding: 15px 5px;
-            background: $main-bg;
-            font-size: 1.2rem;
-            display: grid;
-            grid-template-columns: 900px 100px 100px;
-            overflow-y: hidden;
+        &__contents{
+            padding: 0 5px;
 
-            &__update{
-               color: #0099ff;
-               cursor: pointer;
-
-               &:hover{
-                    color: #0077ff;
-                }
+            &__title{
+                margin-bottom: 1px;
+                font-size: 1.3rem;
             }
+            &__date{
+                margin-top: 1px;
+                text-align: right;
+            }
+            &__content{
+                margin-bottom: 10px;
+                padding: 15px 0;
+                background: $main-bg;
+                font-size: 1.2rem;
+                display: grid;
+                grid-template-columns: 900px 100px 100px;
+                overflow-y: hidden;
 
-            &__delete{
-               color: #d62316;
-                cursor: pointer;
+                @include tablet{
+                    grid-template-columns: 200px 50px 50px;
+                }
 
-               &:hover{
+                &__update{
+                    color: #0099ff;
+                    cursor: pointer;
+
+                    &:hover{
+                        color: #0077ff;
+                    }
+                }
+
+                &__delete{
+                    color: #d62316;
+                    cursor: pointer;
+
+                    &:hover{
                     color: #af1207;
+                    }
                 }
             }
-
         }
+        
     }
 
 }

@@ -1,4 +1,4 @@
-.add__task{
+.update__task{
    padding-top: 50px;
 
    &__title{
@@ -15,8 +15,8 @@
     }
 
     &__inputs{
-        display: grid;
-        grid-template-columns: 200px 800px 150px;
+        display: flex;
+        flex-direction: column;
 
         @include tablet {
            display: block;

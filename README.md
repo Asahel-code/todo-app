@@ -2,6 +2,13 @@
 
 This app will enable you manage users and add enable each user to add his/her tasks
 
+The app uses the browser local storage it database to manage task and users 
+
+<img src="./src/assets/register.png" alt="register page"/>
+
+<img src="./src/assets/login.png" alt="login page"/>
+
+<img src="./src/assets/todo.png" alt="todo page"/>
 
 ## Available Scripts
 
