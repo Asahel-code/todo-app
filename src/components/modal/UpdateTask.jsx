@@ -14,6 +14,7 @@ const UpdateTask = (props) => {
   //Getting task id param form the URL
   let taskId = props.taskId;
 
+  //Getting element/content to update
   let updateTask = tasks.find((element) => element.id === taskId);
 
   useEffect(() => {
