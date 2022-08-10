@@ -10,6 +10,8 @@ The app uses the browser local storage it database to manage task and users
 
 <img src="./src/assets/todo.png" alt="todo page"/>
 
+<img src="./src/assets/update.png" alt="update page"/>
+
 ## Available Scripts
 
 In the project directory, you can run:

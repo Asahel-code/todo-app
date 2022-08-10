@@ -29,10 +29,10 @@ const Task = () => {
   if (taskCount) {
     showTasks = tasks.map((item, index) => {
       return (
-        <div className="task__section__contents">
+        <div className="task__section__contents" key={index}>
           {/* Task title */}
           <h4 className="task__section__contents__title">{item.title}</h4>
-          <div className="task__section__contents__content" key={index}>
+          <div className="task__section__contents__content" >
             {/* Task requirement */}
             <p className="task__section__contents__content__item">
               {item.task}
