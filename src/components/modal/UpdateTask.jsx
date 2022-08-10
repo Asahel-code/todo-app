@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
+import { BiX } from "react-icons/bi";
 
-const UpdateTask = () => {
+const UpdateTask = (props) => {
   //Variable declaration
   const [taskTitle, setTaskTitle] = useState("");
   const [task, setTask] = useState("");
@@ -10,11 +11,8 @@ const UpdateTask = () => {
   //Getting all the tasks
   const tasks = JSON.parse(localStorage.getItem("tasks"));
 
-   //Navigation variable declaration
-   const navigate = useNavigate()
-
   //Getting task id param form the URL
-  let { taskId } = useParams();
+  let taskId = props.taskId;
 
   useEffect(() => {
     if (tasks !== null) {
@@ -37,29 +35,35 @@ const UpdateTask = () => {
       date: date,
     };
 
-    //Saving new state of a task
-    tasks.push(data);
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-
     //Removing the previous state of a task
     const newState = tasks.filter((element) => element.id !== taskId);
+
+    //Updating the current task
+    tasks.push(data);
+
+    //Saving revomed state
     localStorage.setItem("tasks", JSON.stringify(newState));
 
-    //Redirect to tasks
-    navigate('/');
+    //Saving update state
+    localStorage.setItem("tasks", JSON.stringify(tasks));
 
+    //Removing update modal
+    props.toggle()
   };
   return (
-    <div className="container">
-      <div className="main">
-        <div className="update__task">
+    <div className="modal">
+      <div className="overlay"></div>
+      <div className="modal__content">
+        <div className="modal__content__update__task">
           {/* update task title */}
-          <div className="__update task__title">
-            <h3 className="update__task__title__item">Update your task</h3>
+          <div className="modal__content__update task__title">
+            <h3 className="modal__content__update__task__title__item">
+              Update your task
+            </h3>
           </div>
-          <div className="update__task__inputs">
+          <div className="modal__content__update__task__inputs">
             {/* Task title input */}
-            <div className="update__task__inputs__input">
+            <div className="modal__content__update__task__inputs__input">
               <label htmlFor="taskTitle">Task title</label>
               <input
                 id="taskTitle"
@@ -73,7 +77,7 @@ const UpdateTask = () => {
             </div>
 
             {/* Task content input */}
-            <div className="update__task__inputs__input">
+            <div className="modal__content__update__task__inputs__input">
               <label htmlFor="task">Task content</label>
               <input
                 id="task"
@@ -87,7 +91,7 @@ const UpdateTask = () => {
             </div>
 
             {/* Task date input */}
-            <div className="update__task__inputs__input">
+            <div className="modal__content__update__task__inputs__input">
               <label htmlFor="date">Date</label>
               <input
                 id="date"
@@ -100,16 +104,24 @@ const UpdateTask = () => {
             </div>
 
             {/* Add task button */}
-            <div className="update__task__button">
-              <button type="submit" onClick={handleUpdate}>
+            <div className="modal__content__update__task__button">
+              <button type="button" onClick={handleUpdate}>
                 Update
               </button>
             </div>
           </div>
         </div>
+        <div className="modal__content__close">
+          <BiX onClick={props.toggle ? () => props.toggle() : null} />
+        </div>
       </div>
     </div>
   );
+};
+
+UpdateTask.propTypes = {
+  taskId: PropTypes.string.isRequired,
+  toggle: PropTypes.func.isRequired,
 };
 
 export default UpdateTask;

@@ -19,7 +19,7 @@ const Register = () => {
   });
 
   //Getting all user stored in local storage
-  const user = JSON.parse(localStorage.getItem("user"));
+  const user = JSON.parse(localStorage.getItem("todoUser"));
 
   useEffect(() => {
     if(user !== null){
@@ -27,6 +27,7 @@ const Register = () => {
         navigate("/")
       }
     }
+
     
   },[user, navigate]);
 
@@ -62,7 +63,7 @@ const Register = () => {
       });
 
       //Storing user data to browser local storage
-      localStorage.setItem("user", JSON.stringify(data));
+      localStorage.setItem("todoUser", JSON.stringify(data));
 
       //Redirect to login page after a success register
       navigate('/login');

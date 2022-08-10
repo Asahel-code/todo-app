@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 const Todos = () => {
 
   //Getting all user stored in local storage
-  const user = JSON.parse(localStorage.getItem("user"));
+  const user = JSON.parse(localStorage.getItem("todoUser"));
 
   //Navigation variable declaration
   const navigate = useNavigate();

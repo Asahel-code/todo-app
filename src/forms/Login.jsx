@@ -20,7 +20,7 @@ const Login = () => {
   const [success, setSuccess] = useState(false);
 
   //Getting all user stored in local storage
-  const user = JSON.parse(localStorage.getItem("user"));
+  const user = JSON.parse(localStorage.getItem("todoUser"));
 
   useEffect(() => {
     if (!user) {
@@ -57,7 +57,7 @@ const Login = () => {
         setSuccess(true);
 
         //Updating local storage
-        localStorage.setItem("user", JSON.stringify(data));
+        localStorage.setItem("todoUser", JSON.stringify(data));
         return;
       } else {
         //Setting error for password

@@ -10,7 +10,7 @@ const NavbarSection = () => {
   const menuToggle = () => menuLeft.current.classList.toggle("active");
 
   //Getting all user stored in local storage
-  const user = JSON.parse(localStorage.getItem("user"));
+  const user = JSON.parse(localStorage.getItem("todoUser"));
 
   return (
     <div className="navbar">

@@ -2,7 +2,6 @@
 import Login from '../forms/Login';
 import Register from '../forms/Register';
 import Todos from '../pages/Todos';
-import UpdateTask from '../pages/UpdateTask'
 
 export const useRouter = () => [
     {
@@ -16,9 +15,5 @@ export const useRouter = () => [
       {
         path: "/",
         element: <Todos />,
-      },
-      {
-        path: "/update/:taskId",
-        element: <UpdateTask />,
-      },
+      }
 ]

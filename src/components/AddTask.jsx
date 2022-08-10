@@ -7,6 +7,12 @@ const AddTask = () => {
   const [task, setTask] = useState("");
   const [date, setDate] = useState("");
 
+  //Error variable declaration
+  const [error, setError] = useState({
+    type: "",
+    message: "",
+  });
+
   //Declaration of today's date
   //   let datenow = new Date();
 
@@ -33,10 +39,19 @@ const AddTask = () => {
     };
 
     //Storing users task to local storage
-    tasks.push(data);
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-    // eslint-disable-next-line no-restricted-globals
-    location.reload();
+    if (data.taskTitle !== "" && data.task !== "" && data.date !== "") {
+      tasks.push(data);
+      localStorage.setItem("tasks", JSON.stringify(tasks));
+      // eslint-disable-next-line no-restricted-globals
+      location.reload();
+    } else {
+      //setting up an error message for submitting form with out any or all required input fields
+      setError({
+        ...error,
+        type: "task",
+        message: "Please add a task before submitting!!",
+      });
+    }
   };
 
   return (
@@ -85,6 +100,15 @@ const AddTask = () => {
             onChange={(e) => setDate(e.target.value)}
           />
         </div>
+      </div>
+
+      {/* Task error message */}
+      <div className="message">
+        {error.message !== "" && error.type === "task" && (
+          <>
+            <span className="message__danger">{error.message}</span>
+          </>
+        )}
       </div>
 
       {/* Add task button */}

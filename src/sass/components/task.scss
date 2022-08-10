@@ -60,6 +60,16 @@
                     }
                 }
             }
+            &__emptycontent{
+                text-align: center;
+                font-size: 1.5rem;
+                padding: 20px 0;
+                background: $main-bg;
+
+                @include tablet {
+                    font-size: 1.2rem;
+                }
+            }
         }
         
     }
